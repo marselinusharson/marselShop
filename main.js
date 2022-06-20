@@ -5,7 +5,6 @@ const main = async () =>
   await fetch(API_URL)
     .then((res) => res.json())
     .then((json) => {
-      console.log(json);
       let cards = "";
       json.forEach((el) => (cards += showProduct(el)));
     });
@@ -17,6 +16,8 @@ const showProduct = (j) => {
   const cardBody = document.createElement("div");
   const productName = document.createElement("h6");
   const price = document.createElement("p");
+  const rating = document.createElement("p");
+  const btn = document.createElement("button");
 
   col.setAttribute("class", "col-md-4 my-4");
   card.setAttribute("class", "card shadow-sm");
@@ -25,6 +26,9 @@ const showProduct = (j) => {
   productName.innerHTML = j.title;
   productName.setAttribute("class", "card-text text-success");
   price.innerText = `$${j.price}`;
+  rating.innerText = `⭐${j.rating.rate} of ${j.rating.count}`;
+  btn.innerText = "Buy";
+  btn.setAttribute("class", "btn  btn-success");
 
   canvas.append(col);
   col.append(card);
@@ -32,17 +36,8 @@ const showProduct = (j) => {
   card.append(cardBody);
   cardBody.append(productName);
   cardBody.append(price);
-  return `<div class="col-md-4 my-3">
-            <div class="card shadow-sm">
-                <img src="${j.image}" class="card-img-top" alt="${j.id}">
-                <div class="card-body">
-                    <h5 class="card-text text-success">${j.title}</h5>
-                    <p>Rp.${j.price}</p>
-                    <p>⭐${j.rating.rate} of ${j.rating.count}</p>
-                    <button class="btn btn-success">Buy</button>
-                </div>
-              </div>
-          </div>`;
+  cardBody.append(rating);
+  cardBody.append(btn);
 };
 
 main();
