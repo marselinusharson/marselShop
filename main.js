@@ -1,5 +1,5 @@
 const API_URL = "https://fakestoreapi.com/products";
-const canvas = document.getElementById("wrap");
+const canvas = document.querySelector(".row");
 
 const main = async () =>
   await fetch(API_URL)
@@ -9,7 +9,8 @@ const main = async () =>
       json.forEach((el) => (cards += showProduct(el)));
     });
 
-const showProduct = (j) => {
+const showProduct = (data) => {
+  // membuat card product
   const col = document.createElement("div");
   const card = document.createElement("div");
   const image = document.createElement("img");
@@ -20,14 +21,14 @@ const showProduct = (j) => {
 
   col.setAttribute("class", "col-md-4 my-4");
   card.setAttribute("class", "card shadow-sm");
-  image.setAttribute("src", j.image);
+  image.setAttribute("src", data.image);
   cardBody.setAttribute("class", "card-body");
 
-  const titleDisplayLimit = j.title.slice(0, 25) + "...";
+  const titleDisplayLimit = data.title.slice(0, 25) + "...";
 
   productName.innerHTML = titleDisplayLimit;
   productName.setAttribute("class", "card-text text-success");
-  price.innerText = `$${j.price}`;
+  price.innerText = `$${data.price}`;
   btn.innerText = "Buy";
   btn.setAttribute("class", "btn  btn-success");
 
@@ -38,6 +39,7 @@ const showProduct = (j) => {
   cardBody.append(productName);
   cardBody.append(price);
   cardBody.append(btn);
+  // akhir card product
 
   // membuat modal popup
 
@@ -54,13 +56,13 @@ const showProduct = (j) => {
   modalContainer.setAttribute("class", "modalContainer");
   modal.setAttribute("class", "modalBody");
   closeButton.setAttribute("class", "btn btn-danger");
-  imagePopUp.setAttribute("src", j.image);
-  titleProduct.innerHTML = j.title;
-  text.innerHTML = j.title;
+  imagePopUp.setAttribute("src", data.image);
+  titleProduct.innerHTML = data.title;
+  text.innerHTML = data.title;
   closeButton.innerText = "Close";
-  pricePopUp.innerText = `$${j.price}`;
-  description.innerHTML = j.description;
-  rating.innerText = `⭐${j.rating.rate} of ${j.rating.count}`;
+  pricePopUp.innerText = `$${data.price}`;
+  description.innerHTML = data.description;
+  rating.innerText = `⭐${data.rating.rate} of ${data.rating.count}`;
 
   canvas.appendChild(modalContainer);
   modalContainer.append(modal);
@@ -78,6 +80,8 @@ const showProduct = (j) => {
   closeButton.addEventListener("click", () => {
     modalContainer.classList.remove("show");
   });
+
+  // akhir modal poopup
 };
 
 main();
