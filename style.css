@@ -17,7 +17,6 @@
 }
 
 body {
-  display: grid;
   background-color: var(--body-color);
 }
 
@@ -54,11 +53,21 @@ nav .nav-bar .logo a {
 .content {
   padding-top: 70px;
 }
-.content #wrap {
+.content .catalog {
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: "Poppins", sans-serif;
+}
+.catalog .headerText {
+  text-align: center;
+  margin-top: 15px;
+  color: #198754;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+.content .price {
+  font-size: 1rem;
+  font-weight: 500;
 }
 .card img {
   width: 230px;
@@ -66,10 +75,6 @@ nav .nav-bar .logo a {
   align-items: center;
   display: block;
   margin: auto;
-}
-
-.search-form {
-  background: #000;
 }
 
 .modalContainer {
@@ -119,6 +124,7 @@ nav .nav-bar .logo a {
   font-size: 1rem;
   font-weight: 700;
   font-family: "Poppins", sans-serif;
+  margin-bottom: 1px;
 }
 .modalBody .productDescription {
   font-size: 0.7rem;
