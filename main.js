@@ -19,7 +19,7 @@ const showProduct = (data) => {
   const price = document.createElement("p");
   const btn = document.createElement("button");
 
-  col.setAttribute("class", "col-md-4 my-4");
+  col.setAttribute("class", "col-md-4 my-2");
   card.setAttribute("class", "card shadow-sm");
   image.setAttribute("src", data.image);
   cardBody.setAttribute("class", "card-body");
@@ -29,7 +29,7 @@ const showProduct = (data) => {
   productName.innerHTML = titleDisplayLimit;
   productName.setAttribute("class", "card-text text-success");
   price.innerText = `$${data.price}`;
-  btn.innerText = "Buy";
+  btn.innerText = "Buy Now";
   btn.setAttribute("class", "btn  btn-success");
 
   canvas.append(col);
@@ -56,12 +56,14 @@ const showProduct = (data) => {
   modalContainer.setAttribute("class", "modalContainer");
   modal.setAttribute("class", "modalBody");
   closeButton.setAttribute("class", "btn btn-danger");
+  titleProduct.setAttribute("class", "text-success");
   imagePopUp.setAttribute("src", data.image);
+
   titleProduct.innerHTML = data.title;
   text.innerHTML = data.title;
   closeButton.innerText = "Close";
   pricePopUp.innerText = `$${data.price}`;
-  description.innerHTML = data.description;
+  description.innerHTML = `<p><strong>Description:</p></strong>${data.description}`;
   rating.innerText = `⭐${data.rating.rate} of ${data.rating.count}`;
 
   canvas.appendChild(modalContainer);
