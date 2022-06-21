@@ -80,7 +80,6 @@ nav .nav-bar .logo a {
 
 .modalContainer {
   padding-top: 70px;
-  opacity: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -91,14 +90,11 @@ nav .nav-bar .logo a {
   width: 100vh;
   pointer-events: none;
   z-index: 999;
-  transition: 0.4s;
-  transform: scale(0.3);
-}
-.modalContainer.show {
-  opacity: 1;
-  transform: scale(1);
-  pointer-events: auto;
+  transition: all 0.4s 0.1s;
   background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: all -1s;
 }
 .modalBody {
   display: flex;
@@ -109,6 +105,20 @@ nav .nav-bar .logo a {
   padding: 30px 50px;
   width: 700px;
   max-width: 100%;
+  transform: scale(0.2);
+  opacity: 0;
+  transition: all 0.5s 0.1s;
+}
+.modalContainer.show {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.modalContainer.show .modalBody {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .modalBody img {
@@ -147,5 +157,6 @@ nav .nav-bar .logo a {
   }
   .modalBody img {
     width: 100%;
+    margin: auto;
   }
 }

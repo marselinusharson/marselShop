@@ -82,6 +82,9 @@ const showProduct = (data) => {
 
   catalog.appendChild(modalContainer);
 
+  const category = document.createElement("p");
+  category.innerText = data.category;
+
   modalContainer.append(modal);
   modal.append(imagePopUp);
   modaldescription.append(titleProduct);
@@ -89,7 +92,6 @@ const showProduct = (data) => {
 
   // responsive description
   if (data.description.length > 450) {
-    console.log("Data panjang");
     modal.style.flexDirection = "column";
     imagePopUp.style.margin = "auto";
   }
@@ -97,6 +99,7 @@ const showProduct = (data) => {
   modaldescription.append(rating);
   // modal.append(closeButton);
   modal.append(modaldescription);
+  modaldescription.append(category);
 
   col.addEventListener("click", () => {
     modalContainer.classList.add("show");
