@@ -16,17 +16,18 @@ const showProduct = (j) => {
   const cardBody = document.createElement("div");
   const productName = document.createElement("h6");
   const price = document.createElement("p");
-  const rating = document.createElement("p");
   const btn = document.createElement("button");
 
   col.setAttribute("class", "col-md-4 my-4");
   card.setAttribute("class", "card shadow-sm");
   image.setAttribute("src", j.image);
   cardBody.setAttribute("class", "card-body");
-  productName.innerHTML = j.title;
+
+  const titleDisplayLimit = j.title.slice(0, 25) + "...";
+
+  productName.innerHTML = titleDisplayLimit;
   productName.setAttribute("class", "card-text text-success");
   price.innerText = `$${j.price}`;
-  rating.innerText = `⭐${j.rating.rate} of ${j.rating.count}`;
   btn.innerText = "Buy";
   btn.setAttribute("class", "btn  btn-success");
 
@@ -36,8 +37,47 @@ const showProduct = (j) => {
   card.append(cardBody);
   cardBody.append(productName);
   cardBody.append(price);
-  cardBody.append(rating);
   cardBody.append(btn);
+
+  // membuat modal popup
+
+  const modalContainer = document.createElement("div");
+  const modal = document.createElement("div");
+  const text = document.createElement("p");
+  const titleProduct = document.createElement("h5");
+  const closeButton = document.createElement("button");
+  const description = document.createElement("p");
+  const imagePopUp = document.createElement("img");
+  const pricePopUp = document.createElement("h6");
+  const rating = document.createElement("p");
+
+  modalContainer.setAttribute("class", "modalContainer");
+  modal.setAttribute("class", "modalBody");
+  closeButton.setAttribute("class", "btn btn-danger");
+  imagePopUp.setAttribute("src", j.image);
+  titleProduct.innerHTML = j.title;
+  text.innerHTML = j.title;
+  closeButton.innerText = "Close";
+  pricePopUp.innerText = `$${j.price}`;
+  description.innerHTML = j.description;
+  rating.innerText = `⭐${j.rating.rate} of ${j.rating.count}`;
+
+  canvas.appendChild(modalContainer);
+  modalContainer.append(modal);
+  modal.append(imagePopUp);
+  modal.append(titleProduct);
+  modal.append(description);
+  modal.append(pricePopUp);
+  modal.append(rating);
+  modal.append(closeButton);
+
+  col.addEventListener("click", () => {
+    modalContainer.classList.add("show");
+  });
+
+  closeButton.addEventListener("click", () => {
+    modalContainer.classList.remove("show");
+  });
 };
 
 main();
