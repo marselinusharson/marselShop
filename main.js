@@ -46,40 +46,46 @@ const showProduct = (data) => {
   const modalContainer = document.createElement("div");
   const modal = document.createElement("div");
   const text = document.createElement("p");
-  const titleProduct = document.createElement("h5");
+  const titleProduct = document.createElement("p");
   const closeButton = document.createElement("button");
   const description = document.createElement("p");
   const imagePopUp = document.createElement("img");
   const pricePopUp = document.createElement("h6");
   const rating = document.createElement("p");
+  const modaldescription = document.createElement("div");
 
   modalContainer.setAttribute("class", "modalContainer");
   modal.setAttribute("class", "modalBody");
   closeButton.setAttribute("class", "btn btn-danger");
-  titleProduct.setAttribute("class", "text-success");
   imagePopUp.setAttribute("src", data.image);
-
+  titleProduct.setAttribute("class", "titleProduct");
   titleProduct.innerHTML = data.title;
   text.innerHTML = data.title;
-  closeButton.innerText = "Close";
-  pricePopUp.innerText = `$${data.price}`;
-  description.innerHTML = `<p><strong>Description:</p></strong>${data.description}`;
+  closeButton.innerHTML = "Close";
+  pricePopUp.innerHTML = `$${data.price}`;
+  description.setAttribute("class", "productDescription");
+  description.innerHTML = data.description;
   rating.innerText = `⭐${data.rating.rate} of ${data.rating.count}`;
 
   canvas.appendChild(modalContainer);
+
   modalContainer.append(modal);
   modal.append(imagePopUp);
-  modal.append(titleProduct);
-  modal.append(description);
-  modal.append(pricePopUp);
-  modal.append(rating);
-  modal.append(closeButton);
+  modaldescription.append(titleProduct);
+  modaldescription.append(description);
+  modaldescription.append(pricePopUp);
+  modaldescription.append(rating);
+  // modal.append(closeButton);
+  modal.append(modaldescription);
 
   col.addEventListener("click", () => {
     modalContainer.classList.add("show");
   });
 
   closeButton.addEventListener("click", () => {
+    modalContainer.classList.remove("show");
+  });
+  modalContainer.addEventListener("click", () => {
     modalContainer.classList.remove("show");
   });
 

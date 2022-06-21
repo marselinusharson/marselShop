@@ -73,6 +73,7 @@ nav .nav-bar .logo a {
 }
 
 .modalContainer {
+  padding-top: 70px;
   opacity: 0;
   display: flex;
   align-items: center;
@@ -94,23 +95,34 @@ nav .nav-bar .logo a {
   background-color: rgba(0, 0, 0, 0.3);
 }
 .modalBody {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   background: #fff;
   border-radius: 5px;
   padding: 30px 50px;
-  width: 600px;
+  width: 700px;
   max-width: 100%;
 }
 
 .modalBody img {
-  width: 100px;
-  height: 100px;
+  width: 80%;
+  height: 330px;
+  margin-right: 10px;
 }
 
 .modalBody h6 {
   font-family: "Poppins", sans-serif;
 }
-.modalBody h5 {
+.modalBody .titleProduct {
+  color: #198754;
+  font-size: 1rem;
+  font-weight: 700;
   font-family: "Poppins", sans-serif;
+}
+.modalBody .productDescription {
+  font-size: 0.7rem;
+  text-align: justify;
 }
 
 .credit {
@@ -118,4 +130,14 @@ nav .nav-bar .logo a {
   font-weight: 700;
   text-align: center;
   padding-top: 70px;
+}
+
+@media screen and (max-width: 678px) {
+  .modalBody {
+    justify-content: center;
+    flex-direction: column;
+  }
+  .modalBody img {
+    width: 100%;
+  }
 }
