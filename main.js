@@ -1,29 +1,31 @@
 const API_URL = "https://fakestoreapi.com/products";
 const catalog = document.querySelector(".catalog");
 
-const main = async () =>
+const main = async () => {
   await fetch(API_URL)
     .then((res) => res.json())
     .then((json) => {
       const headerText = document.createElement("h1");
       headerText.setAttribute("class", "headerText");
-      headerText.innerHTML = "Catalog Product";
+      headerText.innerHTML = "CATALOG PRODUCT";
 
       let cards = "";
       catalog.append(headerText);
       json.forEach((data) => (cards += showProduct(data)));
     });
+};
 
 const showProduct = (data) => {
   // membuat card product
   const col = document.createElement("div");
-  col.setAttribute("class", "col-md-4 my-2");
+  col.setAttribute("class", "col-md-4 col-sm-6 my-2");
 
   const card = document.createElement("div");
-  card.setAttribute("class", "card shadow-sm");
+  card.setAttribute("class", "card shadow-sm img-fluid");
 
   const image = document.createElement("img");
   image.setAttribute("src", data.image);
+  image.classList.add("img-fluid");
 
   const cardBody = document.createElement("div");
   cardBody.setAttribute("class", "card-body");
@@ -39,7 +41,7 @@ const showProduct = (data) => {
 
   const btn = document.createElement("button");
   btn.innerText = "Buy Now";
-  btn.setAttribute("class", "btn  btn-success");
+  btn.setAttribute("class", "btn  btn-success align-self-center");
 
   catalog.append(col);
   col.append(card);
@@ -97,7 +99,6 @@ const showProduct = (data) => {
   }
   modaldescription.appendChild(pricePopUp);
   modaldescription.append(rating);
-  // modal.append(closeButton);
   modal.append(modaldescription);
   modaldescription.append(category);
 
@@ -105,9 +106,6 @@ const showProduct = (data) => {
     modalContainer.classList.add("show");
   });
 
-  closeButton.addEventListener("click", () => {
-    modalContainer.classList.remove("show");
-  });
   modalContainer.addEventListener("click", () => {
     modalContainer.classList.remove("show");
   });
