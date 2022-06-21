@@ -40,7 +40,7 @@ nav .nav-bar {
   margin: 0 auto;
   padding: 0 30px;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
 }
 
