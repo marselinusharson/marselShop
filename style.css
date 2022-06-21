@@ -51,23 +51,6 @@ nav .nav-bar .logo a {
   text-decoration: none;
 }
 
-.nav-bar .nav-links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.nav-bar .nav-links li {
-  list-style-type: none;
-  margin: 22px 5px;
-}
-.nav-links li a {
-  position: relative;
-  font-size: 17px;
-  font-weight: 400;
-  color: var(--text-color);
-  text-decoration: none;
-  padding: 10px;
-}
 .content {
   /* padding-top: 70px; */
 }
@@ -119,4 +102,11 @@ nav .nav-bar .logo a {
 .modalBody img {
   width: 100px;
   height: 100px;
+}
+
+.modalBody h6 {
+  font-family: "Poppins", sans-serif;
+}
+.modalBody h5 {
+  font-family: "Poppins", sans-serif;
 }
