@@ -70,8 +70,9 @@ nav .nav-bar .logo a {
   font-weight: 500;
 }
 .card img {
-  width: 230px;
-  height: 300px;
+  width: 100%;
+  padding: 10px 20px 0 20px;
+  height: 320px;
   align-items: center;
   display: block;
   margin: auto;
@@ -111,8 +112,9 @@ nav .nav-bar .logo a {
 }
 
 .modalBody img {
-  width: 80%;
+  width: 60%;
   height: 330px;
+  max-width: 80%;
   margin-right: 10px;
 }
 

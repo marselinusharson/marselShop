@@ -33,7 +33,7 @@ const showProduct = (data) => {
   productName.setAttribute("class", "card-text text-success");
   productName.innerHTML = titleDisplayLimit;
 
-  let price = document.createElement("p");
+  const price = document.createElement("p");
   price.setAttribute("class", "price");
   price.innerText = `$${data.price}`;
 
@@ -91,7 +91,7 @@ const showProduct = (data) => {
   if (data.description.length > 450) {
     console.log("Data panjang");
     modal.style.flexDirection = "column";
-    imagePopUp.style.width = "100%";
+    imagePopUp.style.margin = "auto";
   }
   modaldescription.appendChild(pricePopUp);
   modaldescription.append(rating);
