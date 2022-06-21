@@ -10,10 +10,8 @@
 :root {
   --body-color: #e4e9f7;
   --nav-color: #198754;
-  --side-color: #010718;
   --text-color: #fff;
-  --search-bar: #f2f2f2;
-  --search-text: #010718;
+  --red-price: #ee4d2d;
 }
 
 body {
@@ -62,22 +60,48 @@ nav .nav-bar .logo a {
 .catalog .headerText {
   text-align: center;
   margin-top: 15px;
+  padding: 40px 0;
   color: #198754;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
-.content .price {
+
+.card {
+  height: 400px !important;
+  border: 2px solid #19875446 !important;
+  transition: all 0.2s;
+}
+
+.card:hover {
+  transform: scaleX(1.02) scaleY(1.02) !important;
+  border: 2px solid #198754cb !important;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.card-body .price {
   font-size: 1rem;
   font-weight: 500;
+  color: var(--red-price);
 }
+
 .card img {
-  width: 100%;
+  width: auto;
   padding: 10px 20px 0 20px;
-  height: 320px;
+  height: 250px;
   align-items: center;
   display: block;
   margin: auto;
 }
 
+.btn {
+  width: 70%;
+}
+
+/* Popup */
 .modalContainer {
   padding-top: 70px;
   display: flex;
@@ -143,11 +167,24 @@ nav .nav-bar .logo a {
   text-align: justify;
 }
 
+.modalBody .price {
+  color: var(--red-price);
+}
+
 .credit {
+  padding-top: 70px;
+  text-align: center;
+}
+.credit p {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
-  text-align: center;
-  padding-top: 70px;
+  margin-bottom: 0;
+}
+.credit a {
+  color: #000;
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 10px;
 }
 
 @media screen and (max-width: 678px) {
